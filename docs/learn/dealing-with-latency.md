@@ -243,7 +243,7 @@ If a player selects an imp, the selection circle will be client driven, it won't
 
 :::note
 The above examples are atomic actions. They happen on click.
-To do continuous client driven actions, there's a few more considerations to take.
+To do continuous client driven actions, there're a few more considerations to take.
 
 - You need to keep a local variable to keep track of your client authoritative data. 
 - You then need to make sure you don't send RPCs to the server (containing your authoritative state) when no data has changed and do dirty checks.
@@ -317,7 +317,7 @@ For the best user experience, you can use controlled desyncs. You could add wind
 Some other examples include:
 - Physics based doors swinging in different direction based on local collision when there's contention
 - IK solving locally for your feet when walking on stairs
-- Death ragdolls where a dead character's body doesn't influence your gameplay anymore and can desync from one client to another. The server syncs all clients that "this character is now dead" and send it's death position. From that point, clients can apply ragdoll physics how they want without syncing between clients. Since they have no gameplay impact, it doesn't matter if the ragdoll is in a tree for one person and a ditch for another. Eventually, the players respawn or the ragdolls disappear, and your game state is in sync again.
+- Death ragdolls where a dead character's body doesn't influence your gameplay anymore and can desync from one client to another. The server syncs all clients that "this character is now dead" and sends its death position. From that point, clients can apply ragdoll physics how they want without syncing between clients. Since they have no gameplay impact, it doesn't matter if the ragdoll is in a tree for one person and a ditch for another. Eventually, the players respawn or the ragdolls disappear, and your game state is in sync again.
 
 In each situation, you need to ensure the reinterpretation doesn't affect gameplay critical systems. In the first example, if the number of gun kills and knife kills are important to your player's stats, this solution might not be doable.
 
